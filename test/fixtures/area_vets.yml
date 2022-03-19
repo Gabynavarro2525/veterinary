@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Area_ID: 1
+  Area_name: MyString
+  Area_funtion: MyString
+  Area_Manager: MyString
+
+two:
+  Area_ID: 1
+  Area_name: MyString
+  Area_funtion: MyString
+  Area_Manager: MyString
