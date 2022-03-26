@@ -1,11 +1,10 @@
 class CreateProducts < ActiveRecord::Migration[7.0]
   def change
     create_table :products do |t|
-      t.integer :Product_ID
-      t.string :Product_Name
-      t.string :product_Utility
-      t.integer :Purchase_Price
-      t.integer :Selling_Price
+      t.string :name
+      t.string :classification
+      t.float :purchase_price
+      t.float :selling_price
 
       t.timestamps
     end

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class AreaTest < ActiveSupport::TestCase
+class ServiceinAreaTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

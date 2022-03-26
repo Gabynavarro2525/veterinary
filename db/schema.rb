@@ -12,28 +12,25 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_03_19_030704) do
   create_table "area_vets", force: :cascade do |t|
-    t.integer "Area_ID"
-    t.string "Area_name"
-    t.string "Area_funtion"
-    t.string "Area_Manager"
+    t.string "name"
+    t.string "funtion"
+    t.string "manager"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer "Product_ID"
-    t.string "Product_Name"
-    t.string "product_Utility"
-    t.integer "Purchase_Price"
-    t.integer "Selling_Price"
+    t.string "name"
+    t.string "classification"
+    t.float "purchase_price"
+    t.float "selling_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "services", force: :cascade do |t|
-    t.integer "service_ID"
-    t.string "Service_Name"
-    t.integer "Service_Price"
+    t.string "name"
+    t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
