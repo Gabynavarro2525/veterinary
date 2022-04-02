@@ -1,2 +1,0 @@
-class AreaVet < ApplicationRecord
-end
