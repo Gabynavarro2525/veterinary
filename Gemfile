@@ -75,4 +75,3 @@ gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
 
 gem 'shoulda-matchers', '~> 5.0'
 
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git'
