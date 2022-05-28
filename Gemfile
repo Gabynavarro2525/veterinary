@@ -77,13 +77,11 @@ group :test do
 
   gem 'shoulda-matchers', '~> 5.0'
 
-  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
-   gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
+  gem 'rspec-rails', '~> 6.0.0.rc1'
 
   gem 'factory_bot_rails'
 
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
   
   gem 'codecov', require: false, group: 'test'
-end
 end
