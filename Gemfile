@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
 end
 
 group :development do
@@ -67,6 +68,22 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+
   gem "selenium-webdriver"
+
   gem "webdrivers"
+
+  gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
+
+  gem 'shoulda-matchers', '~> 5.0'
+
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+   gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
+
+  gem 'factory_bot_rails'
+
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  
+  gem 'codecov', require: false, group: 'test'
+end
 end
