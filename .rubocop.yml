@@ -1,0 +1,16 @@
+AllCops:
+  SuggestExtensions: false
+  Exclude:
+    - db/*
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Style/BlockComments:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

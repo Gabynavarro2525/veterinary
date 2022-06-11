@@ -5,7 +5,7 @@ RSpec.describe Product, type: :model do
     it { should belong_to(:area) }
     it { should validate_presence_of(:name) }
     it 'validate name' do 
-        area = Area.create(name: 'aasdsf', description: 'aasdsf')
+        area = create(:area)
         subject.area = area
         should allow_value(Faker::Name.first_name).for(:name) 
     end
