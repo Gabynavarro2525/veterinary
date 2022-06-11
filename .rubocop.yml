@@ -2,6 +2,10 @@ AllCops:
   SuggestExtensions: false
   Exclude:
     - db/*
+    - config/**/*
+    - bin/*
+  NewCops: 
+    disable
 
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
