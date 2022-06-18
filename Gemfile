@@ -37,7 +37,7 @@ gem "jbuilder"
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -50,8 +50,8 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-
+  gem "debug", platforms: %i[mri mingw x64_mingw]
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -73,17 +73,15 @@ group :test do
 
   gem "webdrivers"
 
-  gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
-
   gem 'shoulda-matchers', '~> 5.0'
 
-  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
-   gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
+  gem 'rspec-rails', '~> 6.0.0.rc1'
 
   gem 'factory_bot_rails'
 
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-  
-  gem 'codecov', require: false, group: 'test'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+
+  gem 'simplecov', require: false, group: 'test'
 end
-end
+
+gem 'rubocop', require: false

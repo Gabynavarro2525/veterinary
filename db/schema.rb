@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_04_02_104249) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "areas", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -25,14 +28,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_02_104249) do
     t.float "selling_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "area_id", null: false
+    t.bigint "area_id", null: false
     t.index ["area_id"], name: "index_products_on_area_id"
   end
 
   create_table "services", force: :cascade do |t|
     t.string "name"
     t.float "price"
-    t.integer "area_id", null: false
+    t.bigint "area_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["area_id"], name: "index_services_on_area_id"

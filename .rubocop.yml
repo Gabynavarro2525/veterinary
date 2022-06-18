@@ -1,0 +1,20 @@
+AllCops:
+  SuggestExtensions: false
+  Exclude:
+    - db/**/*
+    - config/**/*
+    - bin/*
+  NewCops: 
+    disable
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: never
+
+Style/BlockComments:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
