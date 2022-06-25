@@ -1,0 +1,30 @@
+<h1>Productos</h1>
+<p>aqui van los productos</p>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Clasificacion</th>
+      <th>Precio de compra</th>
+      <th>Precio de venta</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+     <% @products.each do |product|%>
+        <tr>
+            <td><%= product.name %></td>
+            <td><%= product.classification %></td>
+            <td><%= product.purchase_price %></td>
+            <td><%= product.selling_price %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+
+
