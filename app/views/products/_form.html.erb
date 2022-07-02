@@ -1,7 +1,7 @@
 <%= form_with model: @product do |form| %>
-  <%= form.text_field :name, placeholder:"nombre del producto"%><br /><br />
-  <%= form.text_field :classification, placeholder:"clasificacion del producto"%><br><br>
-  <%= form.text_field :purchase_price, placeholder:"precio de compra"%><br><br />
-  <%= form.text_field :selling_price, placeholder:"precio de venta"%><br><br>
-  <%= form.submit "Guardar cambios"%>
+  <%= form.text_field :name, placeholder:"product name"%><br /><br />
+  <%= form.text_field :classification, placeholder:"classification"%><br><br>
+  <%= form.text_field :purchase_price, placeholder:"Selling price"%><br><br />
+  <%= form.text_field :selling_price, placeholder:"Purchase price"%><br><br>
+  <%= form.submit "Save"%>
 <% end %>

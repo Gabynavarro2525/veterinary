@@ -1,30 +1,18 @@
-<h1>Productos</h1>
-<p>aqui van los productos</p>
+<h1>Products</h1>
 <table>
   <thead>
     <tr>
-      <th>Nombre</th>
-      <th>Clasificacion</th>
-      <th>Precio de compra</th>
-      <th>Precio de venta</th>
-     
+      <th>Name</th>
+      <th>Classification</th>
+      <th>purchase price</th>
+      <th>selling price</th>
     </tr>
   </thead>
   <tbody>
-     <% @products.each do |product|%>
+   <% @products.each do |product|%>
         <tr>
-            <td><%= product.name %></td>
-            <td><%= product.classification %></td>
-            <td><%= product.purchase_price %></td>
-            <td><%= product.selling_price %></td>
+          <%= render partial: 'product', collection: @products %>
         </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-
-
-
-
