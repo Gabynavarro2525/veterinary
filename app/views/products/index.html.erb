@@ -6,13 +6,12 @@
       <th>Classification</th>
       <th>purchase price</th>
       <th>selling price</th>
-      <th> link</th>
     </tr>
   </thead>
   <tbody>
    <% @products.each do |product|%>
         <tr>
-          <%= render partial: 'product', collection: @products %>
+          <%= render partial: 'product', local: {products} %>
         </tr>
     <% end %>
   </tbody>
