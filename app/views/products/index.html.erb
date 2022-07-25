@@ -1,0 +1,18 @@
+<h1>Products</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Classification</th>
+      <th>purchase price</th>
+      <th>selling price</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @products.each do |product|%>
+        <tr>
+          <%= render partial: 'product', local: {products} %>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
