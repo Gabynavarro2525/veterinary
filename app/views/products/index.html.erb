@@ -11,7 +11,7 @@
   <tbody>
    <% @products.each do |product|%>
         <tr>
-          <%= render partial: 'product', local: {products} %>
+          <%= render partial: 'product', locals: {product: product } %>
         </tr>
     <% end %>
   </tbody>
