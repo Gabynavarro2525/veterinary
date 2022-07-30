@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create product_params
+    @product = Product.create! product_params 
     redirect_to products_path(@product), notice: 'Product was successfully created.'
   end
 
@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if @product.update product_params
+    if @product.update! product_params
       redirect_to products_path, notice: 'Product was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
@@ -29,13 +29,13 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
+    @product.destroy!
     redirect_to products_path, status: :ok, notice: 'Product deleted successfully'
   end
 
   private
   def product_params
-    params.require(:product).permit(:area_id, :name, :description, :selling_price, :purchase_price)
+    params.require(:product).permit(:area_id, :name, :classification, :selling_price, :purchase_price)
   end
   def set_product
     @product = Product.find params[:id]
