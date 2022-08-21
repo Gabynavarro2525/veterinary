@@ -1,9 +1,14 @@
 Devise.setup do |config|
+<<<<<<< HEAD
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+=======
+  config.mailer_sender = 'gabynavarro2525@gmail.com'
+>>>>>>> main
   config.mailer = 'Devise::Mailer'
   config.parent_mailer = 'ActionMailer::Base'
   require 'devise/orm/active_record'
   config.authentication_keys = [:email]
+<<<<<<< HEAD
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
   # find_for_authentication method and considered in your model lookup. For instance,
@@ -51,6 +56,15 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
   config.send_email_changed_notification = false
   config.send_password_change_notification = false
+=======
+  config.case_insensitive_keys = [:email]
+  config.strip_whitespace_keys = [:email]
+  config.params_authenticatable = true
+  config.skip_session_storage = [:http_auth]
+  config.stretches = Rails.env.test? ? 1 : 12
+  config.send_email_changed_notification = true
+  config.send_password_change_notification = true
+>>>>>>> main
   config.allow_unconfirmed_access_for = 2.days
   config.confirm_within = 3.days
   config.reconfirmable = true
@@ -58,6 +72,7 @@ Devise.setup do |config|
   config.remember_for = 2.weeks
   config.expire_all_remember_me_on_sign_out = true
   config.extend_remember_period = false
+<<<<<<< HEAD
   # Options to be passed to the created cookie. For instance, you can set
   # secure: true in order to force SSL only cookies.
   # config.rememberable_options = {}
@@ -81,6 +96,18 @@ Devise.setup do |config|
   # config.last_attempt_warning = true
   config.reset_password_keys = [:email]
   config.reset_password_within = 6.hours
+=======
+  config.password_length = 6..20
+  config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
+  config.timeout_in = 10.minutes
+  config.lock_strategy = :failed_attempts
+  config.unlock_keys = [:email]
+  config.unlock_strategy = :email
+  config.maximum_attempts = 3
+  config.last_attempt_warning = true
+  config.reset_password_keys = [:email]
+  config.reset_password_within = 30.minutes
+>>>>>>> main
   config.sign_in_after_reset_password = true
   config.sign_out_via = :delete
   config.sign_in_after_change_password = true
