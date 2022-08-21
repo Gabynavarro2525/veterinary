@@ -38,6 +38,12 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+
+  #SE UTILIZA PARA LIMPIAR LA BASE DE DATOS ANTES DE INICIAR EL TEST
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
@@ -51,7 +57,11 @@ RSpec.configure do |config|
   #     RSpec.describe UsersController, type: :controller do
   #       # ...
   #     end
-  #
+  # USE THE FACTORY BOT
+  RSpec.configure do |config|
+    config.include FactoryBot::Syntax::Methods
+  end
+  
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
