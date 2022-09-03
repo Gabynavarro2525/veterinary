@@ -1,5 +1,4 @@
 <h1>Products</h1>
-<%= link_to "Export PDF file", products_path(format: :pdf)%>
 <table>
   <thead>
     <tr>
@@ -14,8 +13,13 @@
   <tbody>
    <% @products.each do |product|%>
         <tr>
-          <%= render partial: 'product', locals: {product: product } %>
-        </tr>
+         <td><%= product.area_id %></td>
+         <td><%= product.id %></td>
+         <td><%= product.name%></td>
+         <td><%= product.classification %></td>
+         <td><%= product.purchase_price %></td>
+         <td><%= product.selling_price %></td>
+         </tr>
     <% end %>
   </tbody>
 </table>
