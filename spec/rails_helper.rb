@@ -51,7 +51,11 @@ RSpec.configure do |config|
   #     RSpec.describe UsersController, type: :controller do
   #       # ...
   #     end
-  #
+  # USE THE FACTORY BOT
+  RSpec.configure do |config|
+    config.include FactoryBot::Syntax::Methods
+  end
+  
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
