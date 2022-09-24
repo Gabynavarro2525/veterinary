@@ -1,5 +1,6 @@
 <h1>Products</h1>
-<%= link_to "Export PDF file", products_path(format: :pdf), :target =>"_blank" %>
+<a href= "/send_mail"> Send Mail</a>
+<%= link_to "Export PDF file", products_path(format: :pdf), :target => "_blank" %>
 <table>
   <thead>
     <tr>
@@ -12,9 +13,9 @@
     </tr>
   </thead>
   <tbody>
-   <% @products.each do |product|%>
+   <% @products.each do |product| %>
         <tr>
-          <%= render partial: 'product', locals: {product: product } %>
+          <%= render partial: "product", locals: { product: product } %>
         </tr>
     <% end %>
   </tbody>

@@ -4,8 +4,8 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     respond_to do |format|
-      format.html 
-      format.pdf {render template: 'products/products', pdf: 'products'}
+      format.html
+      format.pdf { render template: "products/products", pdf: "products" }
     end
   end
 
@@ -14,11 +14,11 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create! product_params 
-    redirect_to products_path(@product), notice: 'Product was successfully created.'
+    @product = Product.create! product_params
+    redirect_to products_path(@product), notice: "Product was successfully created."
   end
 
-  def show 
+  def show
   end
 
   def edit
@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update! product_params
-      redirect_to products_path, notice: 'Product was successfully updated.'
+      redirect_to products_path, notice: "Product was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,13 +34,20 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy!
-    redirect_to products_path, status: :ok, notice: 'Product deleted successfully'
+    redirect_to products_path, status: :ok, notice: "Product deleted successfully"
+  end
+
+  def send_mail
+    UserMailer.send_mail_files.deliver_now!
+    render :text => "mail sent"
   end
 
   private
+
   def product_params
     params.require(:product).permit(:area_id, :name, :classification, :selling_price, :purchase_price)
   end
+
   def set_product
     @product = Product.find params[:id]
   end
