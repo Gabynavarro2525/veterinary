@@ -38,8 +38,7 @@ class ProductsController < ApplicationController
   end
 
   def send_mail
-    UserMailer.send_mail_files.deliver_now!
-    render :text => "mail sent"
+    UserMailer.send_mail_files.deliver_now
   end
 
   private
