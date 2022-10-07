@@ -16,7 +16,7 @@ RSpec.describe "Products", type: :request do
     it "format is pdf" do
       get "/products", params: { format: :pdf }
       expect(response.status).to eq 200
-      expect(response.content_type).to eq("application/pdf")
+      expect(response.content_type).to eq("application/pdf; charset=utf-8")
       expect(response).to be_successful
     end
     it "format is csv" do
@@ -45,9 +45,10 @@ RSpec.describe "Products", type: :request do
       get "/products", params: { format: :csv }
       expect(response.status).to eq 200
       expect(response.content_type).to eq("application/octet-stream")
+      @file = fixture_file_upload("products.csv", "csv")
       #post :create, params: {
-      #                csv_file: fixture_file_upload(csv_file, "text/csv"),
-      #             }
+      #               csv_file: fixture_file_upload("/products.csv", "text/csv"),
+      #            }
       expect(response).to be_successful
     end
   end

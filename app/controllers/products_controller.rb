@@ -13,10 +13,6 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     respond_to do |format|
-<<<<<<< HEAD
-      format.pdf { render template: "products/products", pdf: "products" }
-=======
->>>>>>> bd4d4d9... chore: escel_files test csv
       format.html
       format.csv { send_data @products.to_csv }
       format.pdf { render template: "products/products", pdf: "products" }
