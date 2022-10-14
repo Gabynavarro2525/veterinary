@@ -8,8 +8,7 @@
   </head>
 
   <body>
-    <p>Veterinary send you the files</p>
-  <a href="/home/gabriela/Downloads/products.pdf" download= "product.pdf">Products pdf</a>
-
+    <p>Veterinary send you the report files</p>
+    <%= link_to "Download report in pdf format", products_url(format: :pdf) %>
   </body>
 </html>

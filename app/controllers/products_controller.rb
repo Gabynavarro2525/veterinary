@@ -38,7 +38,8 @@ class ProductsController < ApplicationController
   end
 
   def send_mail
-    UserMailer.send_mail_files.deliver_now
+    UserMailer.send_mail_files.deliver_now!
+    redirect_to products_path
   end
 
   private
