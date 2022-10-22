@@ -39,7 +39,12 @@ class ProductsController < ApplicationController
 
   def send_mail
     UserMailer.send_mail_files.deliver_now!
-    render :text => "mail sent"
+    @products = Product.all
+    respond_to do |format|
+      format.html
+      format.pdf { render template: "products/products", pdf: "products" }
+    end
+    redirect_to products_path
   end
 
   private
