@@ -1,13 +1,15 @@
 <h1>Products</h1>
 <a href= "/send_mail"> Send Mail</a>
 <%= link_to "Export PDF file", products_path(format: :pdf), :target => "_blank" %>
+<%= link_to "Export products", products_path(format: :csv) %>
+<%= render "import" %>
 <table>
   <thead>
     <tr>
-     <th>area id</th>
+      <th>area id</th>
       <th>id</th>
-      <th>Name</th>
-      <th>Classification</th>
+      <th>name</th>
+      <th>classification</th>
       <th>purchase price</th>
       <th>selling price</th>
     </tr>
