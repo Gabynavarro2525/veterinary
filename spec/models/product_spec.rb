@@ -4,7 +4,6 @@ RSpec.describe Product, type: :model do
   it 'testing relationships between models'do
     should belong_to(:area) 
     should validate_presence_of(:name) 
-  end
 
   it 'validate name' do
     area = create(:area)
@@ -32,5 +31,4 @@ RSpec.describe Product, type: :model do
     should allow_value(Faker::Number.decimal).for(:purchase_price)
     should_not allow_value(Faker::String.random).for(:purchase_price)
   end
-  
-end
+end 

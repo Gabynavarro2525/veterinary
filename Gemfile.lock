@@ -244,6 +244,7 @@ GEM
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
+    rufo (0.13.0)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -314,6 +315,7 @@ DEPENDENCIES
   rails (~> 7.0.2, >= 7.0.2.3)
   rspec-rails (~> 6.0.0.rc1)
   rubocop
+  rufo
   selenium-webdriver
   shoulda-matchers (~> 5.0)
   simplecov
