@@ -1,8 +1,8 @@
 Devise.setup do |config|
-  config.mailer_sender = 'gabynavarro2525@gmail.com'
-  config.mailer = 'Devise::Mailer'
-  config.parent_mailer = 'ActionMailer::Base'
-  require 'devise/orm/active_record'
+  config.mailer_sender = "djohnston@ucol.mx"
+  config.mailer = "Devise::Mailer"
+  config.parent_mailer = "ActionMailer::Base"
+  require "devise/orm/active_record"
   config.authentication_keys = [:email]
   config.case_insensitive_keys = [:email]
   config.strip_whitespace_keys = [:email]
@@ -31,5 +31,5 @@ Devise.setup do |config|
   config.sign_in_after_reset_password = true
   config.sign_out_via = :delete
   config.sign_in_after_change_password = true
-  config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.navigational_formats = ["*/*", :html, :turbo_stream]
 end

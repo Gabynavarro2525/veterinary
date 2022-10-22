@@ -47,6 +47,16 @@ class ProductsController < ApplicationController
     redirect_to products_path, status: :ok, notice: "Product deleted successfully"
   end
 
+  def send_mail
+    UserMailer.send_mail_files.deliver_now!
+    @products = Product.all
+    respond_to do |format|
+      format.html
+      format.pdf { render template: "products/products", pdf: "products" }
+    end
+    redirect_to products_path
+  end
+
   private
 
   def product_params
