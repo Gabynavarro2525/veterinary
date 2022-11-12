@@ -1,10 +1,6 @@
-namespace :db do
+namespace :modify_column do
   desc "modify the column of selling price"
-  task update_price: :environment do
-    Product.select :selling_price
-    Puts value * 1.1
-    products.update_column :selling_price
+  task products: :environment do
+    Product.update_all("selling_price = selling_price * 1.1")
   end
 end
-
-#find_each
