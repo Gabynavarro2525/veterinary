@@ -1,10 +1,7 @@
 namespace :modify_column do
   desc "modify the column of selling price"
   task products: :environment do
-    prin = 1
-    value = Product.select :selling_price
-    Puts value * 1.1
-    products.update_column :selling_price
+    Product.update_all("selling_price = selling_price * 1.1")
   end
 end
 
