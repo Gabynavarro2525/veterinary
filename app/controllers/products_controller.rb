@@ -65,5 +65,8 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find params[:id]
+    if stale?(last_modified: @product.updated_at, public: true)
+    render json: @product
+  end
   end
 end

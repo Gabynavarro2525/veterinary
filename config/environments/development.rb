@@ -78,4 +78,7 @@ Rails.application.configure do
   #   :openssl_verify_mode => "none",
   # }
   config.action_mailer.perform_deliveries = true
+  config.debug_exception_response_format = :default
+  config.debug_exception_response_format = :api
+
 end
