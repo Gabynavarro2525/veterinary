@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   require "csv"
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+=begin
   def import
     file = params[:file]
     return redirect_to request.referer, notice: "Only CSV files allowed" unless params[:file].content_type == "text/csv"
@@ -9,14 +9,14 @@ class ProductsController < ApplicationController
     CsvImportProductsService.new.call(file)
     redirect_to products_path, notice: "New product added successfully..."
   end
-
+=end
   def index
     @products = Product.all
-    respond_to do |format|
-      format.html
-      format.csv { send_data @products.to_csv }
-      format.pdf { render template: "products/products", pdf: "products" }
-    end
+   # respond_to do |format|
+   #  format.html
+   # format.csv { send_data @products.to_csv }
+   #   format.pdf { render template: "products/products", pdf: "products" }
+   #end
   end
 
   def new
@@ -46,8 +46,8 @@ class ProductsController < ApplicationController
     @product.destroy!
     redirect_to products_path, status: :ok, notice: "Product deleted successfully"
   end
-
-  def send_mail
+=begin
+   def send_mail
     UserMailer.send_mail_files.deliver_now!
     @products = Product.all
     respond_to do |format|
@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
     end
     redirect_to products_path
   end
-
+=end
   private
 
   def product_params
@@ -65,5 +65,8 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find params[:id]
+    if stale?(last_modified: @product.updated_at, public: true)
+    render json: @product
+  end
   end
 end
