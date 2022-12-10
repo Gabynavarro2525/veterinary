@@ -1,10 +1,20 @@
 class ProductsController < ApplicationController
+  require "csv"
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+
+  def import
+    file = params[:file]
+    return redirect_to request.referer, notice: "Only CSV files allowed" unless params[:file].content_type == "text/csv"
+    file = File.open(file)
+    CsvImportProductsService.new.call(file)
+    redirect_to products_path, notice: "New product added successfully..."
+  end
 
   def index
     @products = Product.all
     respond_to do |format|
       format.html
+      format.csv { send_data @products.to_csv }
       format.pdf { render template: "products/products", pdf: "products" }
     end
   end
@@ -39,7 +49,12 @@ class ProductsController < ApplicationController
 
   def send_mail
     UserMailer.send_mail_files.deliver_now!
-    render :text => "mail sent"
+    @products = Product.all
+    respond_to do |format|
+      format.html
+      format.pdf { render template: "products/products", pdf: "products" }
+    end
+    redirect_to products_path
   end
 
   private
