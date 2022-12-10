@@ -78,7 +78,13 @@ Rails.application.configure do
   #   :openssl_verify_mode => "none",
   # }
   config.action_mailer.perform_deliveries = true
+  
   config.debug_exception_response_format = :default
   config.debug_exception_response_format = :api
+
+  Rails.logger = Logger.new(STDOUT)
+  Rails.logger.level = Logger::DEBUG
+  Rails.logger.datetime_format = "%Y-%m-%d %H:%M:%S"
+  config.logger = ActiveSupport::Logger.new("log/#{Rails.env}.log")
 
 end
