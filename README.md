@@ -68,15 +68,28 @@ After making the corresponding installations, we will proceed to download the re
 
 9.- Then go to the project folder using your terminal
 
-10.- Then, for the installation of the gems that the project already includes, execute the following command:
+10.- install postgres. version 12.12
+
+11.- Then, for the installation of the gems that the project already includes, execute the following command:
 
 ##### bundle install
 
+### DataBase
 
+After the bundle install, we need create the DataBase, the commands are:
 
+rake db:create
 
+rake db:migrate
 
+### How to run the rake task to fill DataBase
 
+In this proyect exist one file called rake task, this file can help us to fill the data base, to run this file, we run the next command:
 
+rake create_products:products
 
+### Start the server
 
+After complete  all the steps, we can stast the server, we need use the next command:
+
+rails s
